@@ -20,6 +20,10 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async () => {
-  return { hello: 'world' }
-})
+Route.group(() => {
+  Route.get('/', 'ClientsController.index')
+  Route.get('/:id', 'ClientsController.show').where('id', Route.matchers.uuid())
+  Route.post('/', 'ClientsController.store')
+  Route.patch('/:id', 'ClientsController.update').where('id', Route.matchers.uuid())
+  Route.delete('/:id', 'ClientsController.delete').where('id', Route.matchers.uuid())
+}).prefix('/clientes')

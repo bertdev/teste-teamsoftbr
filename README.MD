@@ -9,6 +9,8 @@
 
 ### Instruções
 
+Crie um arquivo .env com base no .env.example e preencha as variaveis com base no arquivo docker-compose.yml
+
 Para criar o container com o banco de dados para rodar a aplicação deve-se rodar o comando: `docker-compose up -d`
 
 Após a criação do container rode o comando: `node ace migration:run` para rodar as migrations para estruturação das tabelas
