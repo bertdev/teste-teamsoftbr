@@ -7,6 +7,12 @@
 - Lucid
 - MySql
 
+### Instruções
+
+Para criar o container com o banco de dados para rodar a aplicação deve-se rodar o comando: `docker-compose up -d`
+
+Após a criação do container rode o comando: `node ace migration:run` para rodar as migrations para estruturação das tabelas
+
 ### TODO
 
 - Cliente
