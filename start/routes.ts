@@ -27,3 +27,11 @@ Route.group(() => {
   Route.patch('/:id', 'ClientsController.update').where('id', Route.matchers.uuid())
   Route.delete('/:id', 'ClientsController.delete').where('id', Route.matchers.uuid())
 }).prefix('/clientes')
+
+Route.group(() => {
+  Route.get('/', 'AddressesController.index')
+  Route.get('/:id', 'AddressesController.show').where('id', Route.matchers.uuid())
+  Route.post('/', 'AddressesController.store')
+  Route.patch('/:id', 'AddressesController.update').where('id', Route.matchers.uuid())
+  Route.delete('/:id', 'AddressesController.delete').where('id', Route.matchers.uuid())
+}).prefix('/enderecos')

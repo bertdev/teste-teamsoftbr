@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, beforeCreate, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, beforeCreate, column, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
 import { v4 as uuid } from 'uuid'
+import Address from './Address'
 
 export default class Client extends BaseModel {
   public static selfAssignPrimaryKey = true
@@ -19,6 +20,9 @@ export default class Client extends BaseModel {
 
   @column()
   public telefone: string
+
+  @hasMany(() => Address, { foreignKey: 'client_id' })
+  public addresses: HasMany<typeof Address>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

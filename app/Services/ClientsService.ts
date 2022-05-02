@@ -14,7 +14,7 @@ export class ClientesService {
   }
 
   public static async findOne(id: string) {
-    const cliente = await Client.find(id)
+    const cliente = await Client.query().preload('addresses').where('id', id).first()
     return cliente
   }
 
